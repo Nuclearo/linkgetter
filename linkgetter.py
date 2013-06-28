@@ -5,8 +5,9 @@ import webbrowser
 
 def makelink(link):
 	return '<a href="'+link+'">'+link+'</a>'
-if(".app/contents" in os.path.abspath(sys.argv[0])):
-	os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
+
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
+if(".app/Contents" in os.path.abspath(sys.argv[0])):
 	os.chdir("../../..")
 files = [open(f) for f in os.listdir(".") if os.path.isfile(f) and ".log" in f]
 out = open('links.html','w')
@@ -19,4 +20,4 @@ for f in files:
 	f.close()
 out.write('\n</body>\n</html>')
 out.close()
-webbrowser.open(os.path.realpath('links.html'))
+webbrowser.open("file://"+os.path.realpath('links.html'))
