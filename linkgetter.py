@@ -5,6 +5,10 @@ import re
 import webbrowser
 
 def makelink(link):
+	if link.endswith('%5C') or link.endswith('%5c'):
+		link = link[:-3]
+	elif link.endswith('\\'):
+		link = link[:-1]
 	return '<a href="'+link+'">'+link+'</a>'
 
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
