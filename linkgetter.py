@@ -21,7 +21,7 @@ for filename in files:
 	f=open(filename)
 	contents = f.read()
 	out.write('\n<h2>'+f.name+'</h2>')
-	for s in re.findall("(http[s]?://[\S]*)",contents):
+	for s in re.findall(r"(http[s]?://[\S]*)",contents):
 		out.write('\n'+makelink(s)+'<br>')
 	f.close()
 out.write('\n</body>\n</html>')
