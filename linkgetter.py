@@ -10,7 +10,7 @@ from pyth.plugins.plaintext.writer import PlaintextWriter
 os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
 if(".app/Contents" in os.path.abspath(sys.argv[0])):
 	os.chdir("../../..")
-files = [f for f in os.listdir(".") if os.path.isfile(f) and ".rtf" in f]
+files = [f for f in os.listdir(".") if  f.endswith(".rtf")]
 out = open('links.html','w')
 out.write('<html>\n<body>\n<h1>Link List:</h1>')
 for filename in files:
